@@ -1,0 +1,84 @@
+.taskCard {
+  background: white;
+  padding: 16px 14px;
+  margin-top: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #edf0f7;
+}
+
+.taskMain {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 4px;
+  display: inline-block;
+  border: 2px solid;
+}
+
+.dot.blue {
+  border-color: #3f6ce1;
+}
+
+.dot.orange {
+  border-color: #ef8a2f;
+}
+
+.taskMain p {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.taskMain small {
+  margin-top: 4px;
+  display: block;
+  color: #7a839a;
+  font-size: 14px;
+}
+
+.taskMeta {
+  line-height: 1.25;
+}
+
+.taskRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.statusBadge {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.progressStatus {
+  background: #eaf0ff;
+  color: #406ce1;
+}
+
+.doneStatus {
+  background: #e7f8ec;
+  color: #1d9a4b;
+}
+
+.pendingStatus {
+  background: #fdebee;
+  color: #d44862;
+}
+
+.moreIcon {
+  color: #6e768c;
+  font-size: 20px;
+}

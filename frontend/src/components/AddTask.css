@@ -1,0 +1,97 @@
+.sectionCard {
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(56, 88, 159, 0.08);
+}
+
+.sectionTitle {
+  margin: 0 0 16px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1e2430;
+}
+
+.addTask {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.addTask input,
+.addTask select,
+.addTask button {
+  border-radius: 10px;
+  border: 1px solid #e2e6f0;
+  padding: 12px 14px;
+  font-size: 15px;
+}
+
+.addTask input,
+.addTask select {
+  background: #f8fbff;
+  color: #1f2a44;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.addTask input::placeholder {
+  color: #7d88a3;
+}
+
+.addTask input:focus,
+.addTask select:focus {
+  border-color: #8aa8ff;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(63, 108, 225, 0.12);
+}
+
+.addTask input[type="text"] {
+  flex: 1.4;
+}
+
+.addTask select {
+  flex: 0.7;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #6f7890 50%),
+    linear-gradient(135deg, #6f7890 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(50% - 3px),
+    calc(100% - 12px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 34px;
+}
+
+.addTask input[type="date"] {
+  flex: 0.8;
+  color: #1f2a44;
+}
+
+.addTask button {
+  flex: 0.55;
+  border: 0;
+  background: #3f6ce1;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(63, 108, 225, 0.22);
+}
+
+.addTask button:hover {
+  background: #355ec8;
+}
+
+@media (max-width: 900px) {
+  .sectionTitle {
+    font-size: 24px;
+  }
+
+  .addTask input[type="text"],
+  .addTask select,
+  .addTask input[type="date"],
+  .addTask button {
+    flex: 1 1 100%;
+  }
+}

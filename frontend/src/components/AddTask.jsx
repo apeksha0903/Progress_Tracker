@@ -6,7 +6,7 @@ const getTodayDate = () => new Date().toISOString().split("T")[0];
 
 function AddTask({ tasks, setTasks }) {
   const [title, setTitle] = useState("");
-  const [assignedTo, setAssignedTo] = useState("me");
+  const [assignedTo, setAssignedTo] = useState("Apeksha");
   const [dueDate, setDueDate] = useState(getTodayDate());
 
   // const addTask = () => {
@@ -34,7 +34,7 @@ function AddTask({ tasks, setTasks }) {
         task_name: title,
         task_start_date: getTodayDate(),
         task_due_date: dueDate,
-        user_id: assignedTo === "me" ? "69e7a5d2c16c421154bb73e3" : "69e7a5c6c16c421154bb73e2", // map as needed
+        user_id: assignedTo === "Apeksha" ? "69e7a5d2c16c421154bb73e3" : "69e7a5c6c16c421154bb73e2", // map as needed
       });
 
       const backendTask = res.data;
@@ -72,8 +72,8 @@ function AddTask({ tasks, setTasks }) {
           value={assignedTo}
           onChange={(e) => setAssignedTo(e.target.value)}
         >
-          <option value="me">Me</option>
-          <option value="partner">Avaneesh</option>
+          <option value="Apeksha">Apeksha</option>
+          <option value="Avaneesh">Avaneesh</option>
         </select>
 
         <input

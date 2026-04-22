@@ -15,14 +15,14 @@ const formatDate = (value) => {
 
 function TaskCard({ task, onClick, type }) {
   const statusClass =
-    task.status === "Done"
+    task.task_status === "completed"
       ? "doneStatus"
-      : task.status === "In Progress"
+      : task.task_status === "in-progress"
       ? "progressStatus"
       : "pendingStatus";
 
-  const createdOn = formatDate(task.createdDate || task.date);
-  const dueOn = formatDate(task.dueDate || task.date);
+  const createdOn = formatDate(task.task_start_date || task.task_start_date);
+  const dueOn = formatDate(task.task_due_date || task.task_due_date);
 
   return (
     <div
@@ -32,15 +32,15 @@ function TaskCard({ task, onClick, type }) {
       tabIndex={0}
     >
       <div className="taskMain">
-        <span className={`dot ${type === "me" ? "blue" : "orange"}`} />
+        <span className={`dot ${type === "Apeksha" ? "blue" : "orange"}`} />
         <div>
-          <p>{task.title}</p>
+          <p>{task.task_name}</p>
           <small className="taskMeta">Created: {createdOn}</small>
           <small className="taskMeta">Due: {dueOn}</small>
         </div>
       </div>
       <div className="taskRight">
-        <span className={`statusBadge ${statusClass}`}>{task.status}</span>
+        <span className={`statusBadge ${statusClass}`}>{task.task_status}</span>
         <span className="moreIcon">⋮</span>
       </div>
     </div>

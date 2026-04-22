@@ -1,7 +1,7 @@
 import "../styles/Progress.css";
 
 function Progress({ tasks }) {
-  const myTasks = tasks.filter((t) => t.assignedTo === "me");
+  const myTasks = tasks.filter((t) => t.assignedTo === "Apeksha");
   const partnerTasks = tasks.filter((t) => t.assignedTo === "partner");
 
   const getProgress = (list) => {

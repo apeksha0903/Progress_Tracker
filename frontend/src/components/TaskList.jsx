@@ -1,5 +1,5 @@
 import TaskCard from "./TaskCard";
-import "./TaskList.css";
+import "../styles/TaskList.css";
 
 function TaskList({ tasks, setTasks }) {
   const myTasks = tasks.filter((t) => t.assignedTo === "me");

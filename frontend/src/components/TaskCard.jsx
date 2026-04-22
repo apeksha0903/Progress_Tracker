@@ -1,4 +1,4 @@
-import "./TaskCard.css";
+import "../styles/TaskCard.css";
 
 const formatDate = (value) => {
   if (!value) return "Not set";

@@ -1,4 +1,4 @@
-import "./Progress.css";
+import "../styles/Progress.css";
 
 function Progress({ tasks }) {
   const myTasks = tasks.filter((t) => t.assignedTo === "me");

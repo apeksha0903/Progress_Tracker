@@ -23,21 +23,6 @@ function TaskList({ tasks, setTasks }) {
           fetchTasks(myUserId),
           fetchTasks(partnerUserId),
         ]);
-        // console.log(myData, partnerData);
-        // const formatted = [
-        //   ...myData.map((t) => ({
-        //     id: t._id,
-        //     task_name: t.task_name,
-        //     assignedTo: "me",
-        //     status: mapStatus(t.task_status),
-        //   })),
-        //   ...partnerData.map((t) => ({
-        //     id: t._id,
-        //     task_name: t.task_name,
-        //     assignedTo: "partner",
-        //     status: mapStatus(t.task_status),
-        //   })),
-        // ];
 
         setTasks([...myData, ...partnerData]);
       } catch (err) {
@@ -49,32 +34,32 @@ function TaskList({ tasks, setTasks }) {
   }, []);
 
   const myTasks = tasks.filter((t) => t.user_id === myUserId);
-  console.log(myTasks);
-const partnerTasks = tasks.filter((t) => t.user_id === partnerUserId);
+  // console.log(myTasks);
+  const partnerTasks = tasks.filter((t) => t.user_id === partnerUserId);
 
   // 🔄 Update task status (frontend + backend)
-const updateStatus = async (id) => {
-  const task = tasks.find((t) => t._id === id);
+  const updateStatus = async (id) => {
+    const task = tasks.find((t) => t._id === id);
 
-  let newStatus;
-  if (task.task_status === "pending") newStatus = "in-progress";
-  else if (task.task_status === "in-progress") newStatus = "completed";
-  else newStatus = "pending";
+    let newStatus;
+    if (task.task_status === "pending") newStatus = "in-progress";
+    else if (task.task_status === "in-progress") newStatus = "completed";
+    else newStatus = "pending";
 
-  try {
-    await updateTaskStatusAPI(id, newStatus);
+    try {
+      await updateTaskStatusAPI(id, newStatus);
 
-    setTasks(
-      tasks.map((t) =>
-        t._id === id
-          ? { ...t, task_status: newStatus }
-          : t
-      )
-    );
-  } catch (err) {
-    console.error(err);
-  }
-};
+      setTasks(
+        tasks.map((t) =>
+          t._id === id
+            ? { ...t, task_status: newStatus }
+            : t
+        )
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <div className="sectionCard">
       <h2 className="sectionTitle">2. All Tasks</h2>

@@ -1,31 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import { fetchTasks } from "../api/taskApi";
+import "react-datepicker/dist/react-datepicker.css";
 import "../styles/AddTask.css";
 
 const getTodayDate = () => new Date().toISOString().split("T")[0];
 
+const myUserId = "69e7a5d2c16c421154bb73e3";
+const partnerUserId = "69e7a5c6c16c421154bb73e2";
+
 function AddTask({ tasks, setTasks }) {
   const [title, setTitle] = useState("");
   const [assignedTo, setAssignedTo] = useState("Apeksha");
-  const [dueDate, setDueDate] = useState(getTodayDate());
-
-  // const addTask = () => {
-  //   if (!title) return;
-
-  //   const newTask = {
-  //     id: Date.now(),
-  //     title,
-  //     assignedTo,
-  //     status: "Pending",
-  //     createdDate: getTodayDate(),
-  //     dueDate,
-  //   };
-
-  //   setTasks([...tasks, newTask]);
-  //   setTitle("");
-  //   setDueDate(getTodayDate());
-  // };
-
+  const [dueDate, setDueDate] = useState(new Date());
   const addTask = async () => {
     if (!title) return;
 
@@ -52,6 +40,11 @@ function AddTask({ tasks, setTasks }) {
 
       setTitle("");
       setDueDate(getTodayDate());
+
+      const myTasks = await fetchTasks(myUserId);
+      const partnerTasks = await fetchTasks(partnerUserId);
+      setTasks([...myTasks, ...partnerTasks]);
+    
     } catch (error) {
       console.error("Error creating task:", error);
     }
@@ -76,11 +69,12 @@ function AddTask({ tasks, setTasks }) {
           <option value="Avaneesh">Avaneesh</option>
         </select>
 
-        <input
-          type="date"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-          aria-label="Select due date"
+        <DatePicker
+          selected={dueDate}
+          onChange={(date) => setDueDate(date)}
+          minDate={new Date()}
+          dateFormat="dd-MM-yyyy"
+          className="customDatePicker"
         />
 
         <button onClick={addTask}>+ Add Task</button>

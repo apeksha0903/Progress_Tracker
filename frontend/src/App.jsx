@@ -62,7 +62,7 @@ function App() {
         <h1>Progress Tracker</h1>
         <div className="userPills">
           <span className="pill pillBlue">A</span>
-          <span>Apeksha (You)</span>
+          <span>Apeksha</span>
           <span className="pill pillOrange">A</span>
           <span>Avaneesh</span>
         </div>

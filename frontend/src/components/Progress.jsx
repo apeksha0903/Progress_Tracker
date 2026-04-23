@@ -1,19 +1,23 @@
 import "../styles/Progress.css";
 
 function Progress({ tasks }) {
-  const myTasks = tasks.filter((t) => t.assignedTo === "Apeksha");
-  const partnerTasks = tasks.filter((t) => t.assignedTo === "partner");
 
+  const myUserId = "69e7a5d2c16c421154bb73e3";
+  const partnerUserId = "69e7a5c6c16c421154bb73e2";
+
+  const myTasks = tasks.filter((t) => t.user_id === myUserId);
+  const partnerTasks = tasks.filter((t) => t.user_id === partnerUserId);
+  
   const getProgress = (list) => {
     if (list.length === 0) return 0;
-    const done = list.filter((t) => t.status === "Done").length;
+    const done = list.filter((t) => t.task_status === "completed").length;
     return Math.round((done / list.length) * 100);
   };
-
+  
   const getCounts = (list) => ({
-    done: list.filter((t) => t.status === "Done").length,
-    inProgress: list.filter((t) => t.status === "In Progress").length,
-    pending: list.filter((t) => t.status === "Pending").length,
+    done: list.filter((t) => t.task_status === "completed").length,
+    inProgress: list.filter((t) => t.task_status === "in-progress").length,
+    pending: list.filter((t) => t.task_status === "pending").length,
   });
 
   const myCounts = getCounts(myTasks);
@@ -24,7 +28,7 @@ function Progress({ tasks }) {
       <h2 className="sectionTitle">3. Progress</h2>
       <div className="progressGrid">
         <div className="progressPanel">
-          <div className="panelTitle blueLabel">My Progress</div>
+          <div className="panelTitle blueLabel">Apeksha's Progress</div>
           <div className="progressRow">
             <div className="bar">
               <div
